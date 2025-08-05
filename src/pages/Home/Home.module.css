@@ -1,0 +1,5 @@
+.homeContainer {
+  padding: 2rem 1rem;
+  width: var(--maxScreenLarge);
+  margin: 0 auto;
+}
