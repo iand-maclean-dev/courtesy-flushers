@@ -91,7 +91,8 @@ button {
 .appContainer {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: calc(var(--vh, 1svh) * 100);
+  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 @media (prefers-reduced-motion: reduce) {
