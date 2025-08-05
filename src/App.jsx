@@ -11,17 +11,25 @@ import Footer from "./components/layout/Footer/Footer";
 function App() {
   useEffect(() => {
     const setViewportHeight = () => {
-      // window.innerHeight gives the actual viewport height.
-      // We calculate 1% of it to create a value similar to the 'vh' unit.
-      const vh = window.innerHeight * 0.01;
+      // The visualViewport API gives the height of the viewport that is
+      // actually visible to the user, excluding on-screen keyboards or
+      // browser UI. This is the most reliable way to get the height.
+      const vh = (window.visualViewport?.height || window.innerHeight) * 0.01;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     };
 
-    // Set the value on initial load and on window resize.
-    window.addEventListener("resize", setViewportHeight);
+    // Set the initial value.
     setViewportHeight();
 
-    return () => window.removeEventListener("resize", setViewportHeight);
+    // The 'resize' event on visualViewport is the key to handling the
+    // browser UI appearing and disappearing on mobile. We add a fallback
+    // to the window resize event for older browsers.
+    const visualViewport = window.visualViewport;
+    if (visualViewport) {
+      visualViewport.addEventListener("resize", setViewportHeight);
+      return () =>
+        visualViewport.removeEventListener("resize", setViewportHeight);
+    }
   }, []);
 
   return (
