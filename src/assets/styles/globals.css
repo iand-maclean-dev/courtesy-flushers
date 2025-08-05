@@ -91,7 +91,8 @@ button {
 .appContainer {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 100svh;
+  /* This uses a custom property set by JS to correctly size the viewport on mobile. */
+  min-height: calc(var(--vh, 1svh) * 100);
 }
 
 @media (prefers-reduced-motion: reduce) {
