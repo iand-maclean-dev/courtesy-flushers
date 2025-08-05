@@ -1,28 +1,72 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Logo from "../../common/Logo";
+import Hamburger from "./Hamburger";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Prevent body scroll when the mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    // Cleanup function to reset scroll on component unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <div className={styles.navbarBrand}>
-          <Link to="/" className={styles.logoLink}>
+          <Link to="/" className={styles.logoLink} onClick={handleLinkClick}>
             <Logo />
-            <h1>Courtesy Flushers</h1>
+            <h1 className={styles.brandName}>Courtesy Flushers</h1>
           </Link>
         </div>
-        <div className={styles.navbarLinks}>
-          <Link to="/" className={styles.navLink}>
+
+        <Hamburger isOpen={isMenuOpen} onClick={handleToggleMenu} />
+
+        <div
+          className={`${styles.navbarLinks} ${
+            isMenuOpen ? styles.mobileMenuOverlay : ""
+          }`}
+        >
+          <Link to="/" className={styles.navLink} onClick={handleLinkClick}>
             Home
           </Link>
-          <Link to="/about" className={styles.navLink}>
+          <Link
+            to="/about"
+            className={styles.navLink}
+            onClick={handleLinkClick}
+          >
             About
           </Link>
-          <Link to="/services" className={styles.navLink}>
+          <Link
+            to="/services"
+            className={styles.navLink}
+            onClick={handleLinkClick}
+          >
             Services
           </Link>
-          <Link to="/contact" className={`${styles.navLink} ${styles.primary}`}>
+          <Link
+            to="/contact"
+            className={`${styles.navLink} ${styles.primary}`}
+            onClick={handleLinkClick}
+          >
             Contact Us
           </Link>
         </div>
