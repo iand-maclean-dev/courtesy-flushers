@@ -1,8 +1,8 @@
 {
   "ci": {
     "collect": {
-      "startServerCommand": "pnpm exec vite preview --port=0",
-      "startServerReadyPattern": "Local:.*http://localhost:(\\d+)",
+      "startServerCommand": "npx --yes serve@14 -s dist -l 0",
+      "startServerReadyPattern": "http://localhost:(\\d+)",
       "startServerReadyTimeout": 120000,
       "url": [
         "http://localhost:PORT/",
