@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# SPA sitemap
+Sitemap: https://courtesy-flushers.netlify.app/sitemap.xml
