@@ -1,0 +1,239 @@
+:root {
+  --hero-maxw: 1120px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius: 12px;
+  --accent: #2563eb;
+  --accent-600: #1d4ed8;
+  --fg: #0b1020;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: clamp(420px, 60vh, 720px);
+  padding: var(--space-16) var(--space-4);
+  color: #fff;
+  overflow: clip;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  filter: contrast(1.05) saturate(1.05);
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero[data-overlay="gradient"] .overlay {
+  background: radial-gradient(
+      1200px 600px at 10% 10%,
+      rgba(37, 99, 235, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 500px at 90% 20%,
+      rgba(14, 165, 233, 0.28),
+      transparent 55%
+    ),
+    linear-gradient(180deg, rgba(8, 12, 28, 0.6), rgba(8, 12, 28, 0.85));
+}
+
+.hero[data-overlay="scrim"] .overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 22, 0.65),
+    rgba(6, 10, 22, 0.85)
+  );
+}
+
+.hero[data-overlay="none"] .overlay {
+  background: none;
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--hero-maxw);
+  margin-inline: auto;
+  text-align: left;
+}
+
+.alignCenter .inner {
+  text-align: center;
+}
+.alignLeft {
+} /* noop to match class used */
+
+.eyebrow {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e5edff;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+
+.subtitle {
+  color: #e6e8f2;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.65;
+  max-width: 60ch;
+  margin: 0 0 var(--space-8);
+  opacity: 0.95;
+}
+
+.alignCenter .subtitle {
+  margin-inline: auto;
+}
+
+.ctas {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+  justify-content: flex-start;
+}
+
+.alignCenter .ctas {
+  justify-content: center;
+}
+
+.button {
+  --btn-bg: var(--accent);
+  --btn-bg-h: var(--accent-600);
+  --btn-fg: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  transition: transform 0.08s ease, background 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--btn-bg-h);
+  transform: translateY(-1px);
+}
+.button:active {
+  transform: translateY(0);
+}
+
+.buttonSecondary {
+  --btn-bg: rgba(255, 255, 255, 0.06);
+  --btn-bg-h: rgba(255, 255, 255, 0.12);
+  --btn-fg: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: none;
+}
+
+.buttonLink {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 0;
+  height: auto;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  box-shadow: none;
+}
+
+.slot {
+  margin-bottom: var(--space-8);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.statItem {
+  display: grid;
+  gap: 6px;
+  padding: var(--space-6);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.statValue {
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.statLabel {
+  color: #dfe6ff;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.badges {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-8);
+  opacity: 0.95;
+}
+
+.badgeLink {
+  display: inline-flex;
+  align-items: center;
+}
+.badgeImg {
+  height: 32px;
+  width: auto;
+  filter: brightness(1.05) saturate(0.95) contrast(1.05);
+}
