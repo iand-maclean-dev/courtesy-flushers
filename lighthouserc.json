@@ -1,15 +1,9 @@
 {
   "ci": {
     "collect": {
-      "startServerCommand": "npx --yes serve@14 -s dist -l 0",
-      "startServerReadyPattern": "http://localhost:(\\d+)",
-      "startServerReadyTimeout": 120000,
-      "url": [
-        "http://localhost:PORT/",
-        "http://localhost:PORT/about",
-        "http://localhost:PORT/services",
-        "http://localhost:PORT/contact"
-      ]
+      "staticDistDir": "dist",
+      "isSinglePageApplication": true,
+      "url": ["/", "/about", "/services", "/contact"]
     },
     "assert": {
       "preset": "lighthouse:recommended",
