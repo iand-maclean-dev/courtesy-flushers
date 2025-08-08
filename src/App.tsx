@@ -3,7 +3,7 @@ import NotFound from "./NotFound";
 import HomePage from "@/pages/home/page";
 import About from "@/pages/about/page";
 import Contact from "@/pages/contact/page";
-import Services from "@/pages/services/services";
+import Services from "@/pages/services/page";
 import Navbar from "@/widgets/navbar/Navbar";
 import Footer from "@/widgets/footer/Footer";
 
