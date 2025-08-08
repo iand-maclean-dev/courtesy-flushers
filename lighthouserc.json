@@ -1,8 +1,13 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "dist",
-      "url": ["/", "/about", "/services", "/contact"]
+      "startServerCommand": "pnpm preview --port=$PORT",
+      "url": [
+        "http://localhost:PORT/",
+        "http://localhost:PORT/about",
+        "http://localhost:PORT/services",
+        "http://localhost:PORT/contact"
+      ]
     },
     "assert": {
       "preset": "lighthouse:recommended",
