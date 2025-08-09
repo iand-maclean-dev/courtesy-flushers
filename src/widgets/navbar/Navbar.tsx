@@ -4,8 +4,8 @@ import styles from "./Navbar.module.css";
 import Logo from "@/shared/ui/Logo";
 import Hamburger from "./Hamburger";
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   // Prevent body scroll when the mobile menu is open
   useEffect(() => {

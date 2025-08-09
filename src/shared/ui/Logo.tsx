@@ -1,6 +1,6 @@
-import React from "react";
+import { memo } from "react";
 
-const Logo = React.memo(() => (
+const Logo = memo(() => (
   <svg
     id="logo"
     xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ const Logo = React.memo(() => (
     role="img"
     aria-labelledby="title desc"
   >
+    <rect width="260" height="260" fill="#ffffff" />
     <title id="title">Courtesy Flushers Logo</title>
     <desc id="desc">
       Courtesy Flushers Logo: A blue letter C and F with a semi circle swish

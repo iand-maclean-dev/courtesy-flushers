@@ -1,6 +1,11 @@
 import styles from "./Hamburger.module.css";
+import React from "react";
 
-const Hamburger = ({ isOpen, ...props }) => {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  isOpen: boolean;
+}
+
+const Hamburger: React.FC<Props> = ({ isOpen, ...props }) => {
   const label = isOpen ? "Close menu" : "Open menu";
 
   return (
