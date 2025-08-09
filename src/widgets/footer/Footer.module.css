@@ -4,13 +4,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  color: var(--darkColor, #161616);
+  color: var(--color-fg, #111827);
 
   strong {
     color: var(--primaryColor, #0c2c94);
   }
 
   a {
+    color: var(--primaryColor, #0c2c94);
     text-decoration: none;
 
     &:hover {

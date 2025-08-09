@@ -47,15 +47,15 @@
 .hero[data-overlay="gradient"] .overlay {
   background: radial-gradient(
       1200px 600px at 10% 10%,
-      rgba(37, 99, 235, 0.35),
+      rgba(37, 99, 235, 0.28),
       transparent 60%
     ),
     radial-gradient(
       1000px 500px at 90% 20%,
-      rgba(14, 165, 233, 0.28),
+      rgba(14, 165, 233, 0.22),
       transparent 55%
     ),
-    linear-gradient(180deg, rgba(8, 12, 28, 0.6), rgba(8, 12, 28, 0.85));
+    linear-gradient(180deg, rgba(8, 12, 28, 0.66), rgba(8, 12, 28, 0.88));
 }
 
 .hero[data-overlay="scrim"] .overlay {
@@ -80,8 +80,7 @@
 .alignCenter .inner {
   text-align: center;
 }
-.alignLeft {
-} /* noop to match class used */
+/* .alignLeft is intentionally unused; left alignment is the default */
 
 .eyebrow {
   display: inline-block;

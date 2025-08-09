@@ -11,7 +11,7 @@ const base: React.CSSProperties = {
   border: "1px solid var(--color-border)",
   padding: "var(--space-2) var(--space-3)",
   color: "var(--color-fg)",
-  background: "#fff",
+  background: "var(--whiteColor, #fff)",
 };
 
 export const Input = forwardRef<HTMLInputElement, Props>(
