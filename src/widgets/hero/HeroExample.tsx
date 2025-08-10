@@ -1,5 +1,4 @@
 import Hero from "./Hero";
-import bgImage from "@/shared/assets/images/truck-toilets.jpeg";
 
 export default function HeroExample() {
   return (
@@ -9,7 +8,8 @@ export default function HeroExample() {
       subtitle="Same-day delivery, flexible schedules, and spotless units for events, sites, and emergencies—serving your area with 24/7 support."
       primaryCta={{ label: "Get a free quote", href: "#quote" }}
       secondaryCta={{ label: "Call now", href: "tel:+18001234567" }}
-      backgroundImage={bgImage}
+      backgroundImage="/truck-toilets.jpeg"
+      backgroundImageAlt="Truck delivering portable toilets"
       overlay="gradient"
       align="left"
       stats={[

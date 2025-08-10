@@ -27,6 +27,7 @@ export type HeroProps = {
   primaryCta?: Cta;
   secondaryCta?: Cta;
   backgroundImage?: string;
+  backgroundImageAlt?: string;
   overlay?: "none" | "gradient" | "scrim";
   align?: "left" | "center";
   stats?: Stat[];
@@ -73,6 +74,7 @@ export function Hero({
   primaryCta,
   secondaryCta,
   backgroundImage,
+  backgroundImageAlt = "",
   overlay = "gradient",
   align = "left",
   stats = [],
@@ -125,18 +127,16 @@ export function Hero({
       data-testid={dataTestId}
     >
       {backgroundImage && (
-        <div
-          className={styles.bg}
-          aria-hidden="true"
-          style={{
-            backgroundImage: `url("${backgroundImage}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          {/* decorative background */}
-        </div>
+        <img
+          className={styles.bgImg}
+          src={backgroundImage}
+          alt={backgroundImageAlt}
+          decoding="async"
+          // Important for LCP: do NOT lazy-load the hero image
+          // fetchPriority hints browsers this is high priority
+          fetchPriority="high"
+          sizes="100vw"
+        />
       )}
       <div className={styles.overlay} aria-hidden="true" style={overlayStyle} />
       <div className={styles.inner}>
